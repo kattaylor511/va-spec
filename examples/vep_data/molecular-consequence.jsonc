@@ -1,12 +1,10 @@
 // Made using a subset of data from:
 // https://rest.ensembl.org/vep/human/hgvs/ENST00000366667:c.803C%3ET?content-type=application/json&hgvs=true&CADD=true&SpliceAI=2
-
 {
     // We nested GKS objects (Allele, MolecularConsequenceStudyResult, and
     // InSilicoVariantEffectPredictionStudyResult) in a JSON dictionary for compact IRI referencing.
     // The dictionary is not part of the spec; we will need to decide on the format of the overall
     // "package" for the GKS objects.
-
     "input_variant": {
         "type": "Allele",
         "location": {
@@ -49,7 +47,7 @@
                 {
                     "syntax": "hgvs.c",
                     "value": "ENST00000366667.6:c.803C>T"
-                }            
+                }
             ]
         },
         "proteinMolecule": {
@@ -73,7 +71,7 @@
                 {
                     "syntax": "hgvs.c",
                     "value": "ENSP00000505981.1:p.Ala268Val"
-                }            
+                }
             ]
         },
         "gene": {
@@ -82,10 +80,10 @@
             "mappings": [
                 {
                     "coding": {
-                        "system": "Ensembl-Gene", 
+                        "system": "Ensembl-Gene",
                         "code": "ENSG00000135744"
                     },
-                    "relation": "exactMatch" 
+                    "relation": "exactMatch"
                 }
             ]
         },
@@ -119,7 +117,7 @@
                 {
                     "syntax": "hgvs.c",
                     "value": "ENST00000679684.1:c.803C>T"
-                }            
+                }
             ]
         },
         "proteinMolecule": {
@@ -142,7 +140,7 @@
                 {
                     "syntax": "hgvs.c",
                     "value": "ENSP00000505981.1:p.Ala268Val"
-                }            
+                }
             ]
         },
         "gene": {
@@ -151,10 +149,10 @@
             "mappings": [
                 {
                     "coding": {
-                        "system": "Ensembl-Gene", 
+                        "system": "Ensembl-Gene",
                         "code": "ENSG00000135744"
                     },
-                    "relation": "exactMatch" 
+                    "relation": "exactMatch"
                 }
             ]
         },

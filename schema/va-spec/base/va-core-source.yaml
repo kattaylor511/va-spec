@@ -1079,3 +1079,110 @@ $defs:
         extends: sourceDataSet
         description: >-
           The full data set that provided the reported the functional impact score.
+  MolecularConsequence:
+    inherits: StudyResult
+    maturity: draft
+    type: object
+    description: >-
+      The effect of a variant on a downstream transcript and protein.
+    properties:
+      type:
+        extends: type
+        const: "MolecularConsequence"
+        default: "MolecularConsequence"
+        description: MUST be "MolecularConsequence".
+      focusVariant:
+        extends: focus
+        oneOf:
+          - $refCurie: vrs:Allele
+          - $refCurie: gks.core:iriReference
+        description: The variant which this annotation applies to.
+      transcriptMolecule:
+        description: The transcript affected by the variant.
+        oneOf:
+          - $refCurie: vrs:SequenceReference
+          - $refCurie: gks.core:iriReference
+      transcriptVariant:
+        description: The sequence change caused by the variant on the downstream transcript.
+        ordered: false
+        oneOf:
+          - $refCurie: vrs:Allele
+          - $refCurie: gks.core:iriReference
+      proteinMolecule:
+        description: The protein affected by the variant
+        oneOf:
+          - $refCurie: vrs:SequenceReference
+          - $refCurie: gks.core:iriReference
+      proteinVariant:
+        description: The sequence change caused by the variant on the downstream protein
+        ordered: false
+        oneOf:
+          - $refCurie: vrs:Allele
+          - $refCurie: gks.core:iriReference
+      gene:
+        description: The gene affected by the variant. The objectMolecule should be a transcript or protein for this gene.
+        oneOf:
+          - $refCurie: gks.core:MappableConcept
+          - $refCurie: gks.core:iriReference
+      geneDistance:
+        description: The distance to the affected gene (for variants upstream and downstream of a gene).
+        type: number
+      consequenceTerms:
+        type: array
+        description: Terms describing the effect of the variant on the molecule
+        ordered: false
+        items:
+          oneOf:
+            - $refCurie: gks.core:MappableConcept
+            - $refCurie: gks.core:iriReference
+    required:
+      - focusVariant
+      - consequenceTerms
+
+  InSilicoVariantEffectPredictionStudyResult:
+      inherits: StudyResult
+      maturity: draft
+      type: object
+      description: >-
+        A StudyResult that reports a variant effect score from a functional assay.
+      properties:
+        type:
+          extends: type
+          const: "InSilicoVariantEffectPredictionStudyResult"
+          default: "InSilicoVariantEffectPredictionStudyResult"
+          description: MUST be "InSilicoVariantEffectPredictionStudyResult".
+        label:
+          type: string
+          description: A primary name for the score
+        focusVariant:
+          extends: focus
+          oneOf:
+            - $refCurie: gks.core:iriReference
+            - $refCurie: vrs:Allele
+          description: The variant for which this annotation applies to.
+        transcripts:
+          type: array
+          ordered: false
+          items:
+            oneOf:
+              - $refCurie: gks.core:iriReference
+              - $refCurie: vrs:SequenceReference
+          description: Transcripts for which this score is applicable
+        score:
+          type: number
+          description: The score of the variant effect.
+        categoricalImpact:
+          type: string
+          description: The qualitative term used to classify the predicted impact (e.g., damaging).
+        ancillaryResults:
+          type: object
+          additionalProperties: true
+          description: Dictionary of any normalized or ancillary scores
+        specifiedBy:
+          description: >-
+            The assay that was used to measure the variant effect with all the various properties
+          extends: specifiedBy
+        sourceDataSet:
+          description: >-
+            The full data set that this measurement is a part of
+          extends: sourceDataSet

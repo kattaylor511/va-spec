@@ -1,0 +1,54 @@
+id: vep:ENST00000366667:c.803C>T
+type: MolecularConsequence
+consequenceTerms:
+  - name: missense_variant
+    primaryCoding:
+      code: "SO:123512"
+      system: "sequenceontology"
+focusVariant: "#/my_focus_variant"
+gene:
+  name: AGT
+  mappings:
+    - coding:
+        code: ENSG00000135744
+        system: Ensembl-Gene
+      relation: exactMatch
+  primaryCoding:
+    code: HGNC:333
+    system: hgnc
+proteinMolecule:
+  id: ENSP00000505981.1
+  refgetAccession: SQ.MWE2Njg3OGEzMzc3NTFjZjU5MzI5ZDgz
+  residueAlphabet: aa
+  type: SequenceReference
+proteinVariant:
+  expressions:
+    - syntax: hgvs.c
+      value: ENSP00000505981.1:p.Ala268Val
+  location:
+    end: 268
+    sequence: A
+    start: 267
+    type: SequenceLocation
+  state:
+    sequence: V
+    type: LiteralSequenceExpression
+  type: Allele
+transcriptMolecule:
+  id: ENST00000366667.6
+  refgetAccession: SQ.Y2M5OWI4OGRiN2JkNGViYzQ2MjllMThk
+  residueAlphabet: na
+  type: SequenceReference
+transcriptVariant:
+  expressions:
+    - syntax: hgvs.c
+      value: ENST00000366667.6:c.803C>T
+  location:
+    end: 870
+    sequence: C
+    start: 869
+    type: SequenceLocation
+  state:
+    sequence: T
+    type: LiteralSequenceExpression
+  type: Allele

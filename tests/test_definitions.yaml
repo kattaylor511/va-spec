@@ -109,3 +109,6 @@ tests:
   - test_file: Exp-Var-Func-Impact-Study-Result-01.yaml
     namespace: va-spec.base
     definition: ExperimentalVariantFunctionalImpactStudyResult
+  - test_file: transcript-consequence.yaml
+    namespace: va-spec.base
+    definition: MolecularConsequence
